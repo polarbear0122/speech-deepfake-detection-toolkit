@@ -26,7 +26,7 @@ logs/
 *.ckpt
 
 # Local datasets / audio
- data/
+data/
 *.wav
 *.flac
 *.mp3
