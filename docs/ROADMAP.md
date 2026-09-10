@@ -8,8 +8,8 @@ This roadmap tracks planned research and engineering work for the Speech Deepfak
 - [x] Minimal EER evaluation utility
 - [x] Baseline experiment configuration
 - [ ] Dataset protocol interface
-- [ ] Score-file evaluation CLI
-- [ ] Unit tests for core metrics
+- [x] Score-file evaluation CLI
+- [x] Unit tests for core metrics
 
 ## Phase 2 — Acoustic and representation pipelines
 
