@@ -1,5 +1,7 @@
 # Speech Deepfake Detection Toolkit
 
+[![Tests](https://github.com/polarbear0122/speech-deepfake-detection-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/polarbear0122/speech-deepfake-detection-toolkit/actions/workflows/tests.yml)
+
 An open-source research toolkit for **speech deepfake detection**, **attack source tracing**, and **speaker-aware analysis** of synthetic and converted speech.
 
 This project is designed to make experiments in audio deepfake forensics easier to reproduce, extend, and compare. It focuses on modular pipelines for feature extraction, spoof detection, attack attribution, and speaker-related analysis.
@@ -21,18 +23,32 @@ This project is designed to make experiments in audio deepfake forensics easier 
 - Speaker identification and speaker-aware spoof analysis
 - Acoustic feature baselines and deep representation pipelines
 
+## Implemented
+
+- Equal Error Rate (EER) utility
+- Score-file evaluation CLI
+- Generic dataset protocol parser
+- Unit tests for metrics and protocol parsing
+- Baseline YAML configuration
+- GitHub Actions test workflow
+- Reproducibility guidance
+- Component-level attack taxonomy
+
 ## Repository Structure
 
 ```text
 speech-deepfake-detection-toolkit/
+├── .github/        # CI and issue templates
 ├── configs/        # Experiment configuration files
-├── docs/           # Research notes and roadmap
+├── docs/           # Research notes, taxonomy, and roadmap
 ├── examples/       # Minimal runnable examples
-├── scripts/        # Training / evaluation entry points
+├── scripts/        # Evaluation entry points
 ├── src/            # Reusable Python modules
+├── tests/          # Unit tests
 ├── CONTRIBUTING.md
+├── SECURITY.md
 ├── LICENSE
-├── requirements.txt
+├── pyproject.toml
 └── README.md
 ```
 
@@ -43,9 +59,26 @@ git clone https://github.com/polarbear0122/speech-deepfake-detection-toolkit.git
 cd speech-deepfake-detection-toolkit
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
-pip install -r requirements.txt
+pip install -e .
+pytest -q
 python examples/quickstart.py
 ```
+
+## Protocol Format
+
+The toolkit uses a simple whitespace-separated protocol format:
+
+```text
+utterance_id audio_path label attack_id speaker_id split
+```
+
+Only the first three fields are required. This keeps binary detection, attack attribution, and speaker-aware experiments under one protocol abstraction.
+
+## Research Documentation
+
+- [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — minimum information needed to reproduce an experiment
+- [`docs/ATTACK_TAXONOMY.md`](docs/ATTACK_TAXONOMY.md) — component-level description of TTS/VC attacks beyond dataset IDs
+- [`docs/ROADMAP.md`](docs/ROADMAP.md) — planned engineering and research milestones
 
 ## Design Principles
 
@@ -56,7 +89,7 @@ python examples/quickstart.py
 
 ## Roadmap
 
-Near-term targets include dataset protocol abstraction, acoustic feature extraction, SSL embeddings, binary spoof detection, TTS/VC classification, attack-source attribution, speaker-aware evaluation, and standard metrics such as EER, macro-F1, recall, and confusion matrices.
+Near-term targets include acoustic feature extraction, SSL embeddings, binary spoof detection, TTS/VC classification, attack-source attribution, speaker-aware evaluation, and standard metrics such as EER, macro-F1, recall, and confusion matrices.
 
 See [`docs/ROADMAP.md`](docs/ROADMAP.md) for details.
 
