@@ -7,9 +7,11 @@ This roadmap tracks planned research and engineering work for the Speech Deepfak
 - [x] Repository structure and contribution guide
 - [x] Minimal EER evaluation utility
 - [x] Baseline experiment configuration
-- [ ] Dataset protocol interface
+- [x] Dataset protocol interface
 - [x] Score-file evaluation CLI
 - [x] Unit tests for core metrics
+- [x] Reproducibility guide
+- [x] CI test workflow
 
 ## Phase 2 — Acoustic and representation pipelines
 
