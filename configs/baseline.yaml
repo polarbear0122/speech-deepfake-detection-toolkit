@@ -1,0 +1,15 @@
+experiment:
+  name: baseline
+  seed: 42
+
+task:
+  type: binary_spoof_detection
+  labels:
+    bona_fide: 0
+    spoof: 1
+
+evaluation:
+  metrics:
+    - eer
+    - macro_f1
+    - recall
